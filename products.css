@@ -1,0 +1,135 @@
+@font-face {
+  font-family: "myFont";
+  src: url("fonts/bpg_nino_mtavruli_bold.ttf") format("trueType");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "myFont", sans-serif;
+  line-height: 1.6;
+}
+a {
+  text-decoration: none;
+  color: #000000;
+}
+ul,
+ol {
+  list-style-type: none;
+}
+
+#prod-bgr {
+  background-color: #f7f1ed;
+}
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.prod-title {
+  color: #000000;
+}
+.p-list p {
+  color: #4a0e15;
+}
+/* დეკორატიული ყურძნის მტევნები */
+.products-section {
+  position: relative;
+  margin: 100px 0;
+}
+/* მთავარი სექციის მარჯვნივ ზემოთ */
+.products-section::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  width: 80px;
+  height: 100px;
+  background-image: url("images/grape.png"); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.p-list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.product-parent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 30px;
+  position: relative; /* თითოეული პროდუქტის კონტეინერზე დეკორატიული მტევნები */
+}
+
+/* კენტი პროდუქტების მარცხნივ ზემოთ */
+.product-parent:nth-child(odd)::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: -54px;
+  width: 60px;
+  height: 75px;
+  background-image: url("images/grape.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* ლუწი პროდუქტების მარჯვნივ ზემოთ */
+.product-parent:nth-child(even)::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 60px;
+  height: 75px;
+  background-image: url("images/grape.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 0;
+  transform: scaleX(-1); /* სარკისებური ეფექტი */
+}
+
+/* ტექსტების გვერდით */
+.p-text::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  width: 50px;
+  height: 60px;
+  background-image: url("images/grape.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* z-index კორექცია რომ ტექსტი წინ იყოს */
+.p-text {
+  position: relative;
+  z-index: 1;
+}
+
+.p-img {
+  position: relative;
+  z-index: 1;
+}
+
+.p-img img {
+  width: 250px;
+  border-radius: 8px;
+}
+.p-text h2 {
+  color: #000000;
+}
+.p-text p {
+  font-size: 18px;
+  color: #4a0e15;
+}

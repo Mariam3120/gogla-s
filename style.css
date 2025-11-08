@@ -100,6 +100,32 @@ header {
   width: 100%; /*ხაზმა რო მთლიანი სიგანე დაიკავოს */
 }
 
+/*LANGUAGE*/
+.language {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.language a {
+  color: #4a0e15; 
+  transition: color 0.3s ease;
+}
+
+.language a:hover {
+  color: #d4af37; 
+}
+
+.language .active {
+  color: #d4af37; /* არჩეული ენა */
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+
+
 /* HEADER USER-NAV */
 .user-actions {
   display: flex;
@@ -149,15 +175,17 @@ header {
   top: -8px;
   right: -8px;
   background-color: #d4af37;
-  color: white;
+  color: #4a0e15;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   font-weight: bold;
+  white-space: nowrap;
 }
 /* MOBILE BUTTON */
 .btn-mobile-nav {
@@ -175,6 +203,8 @@ header {
   color: #d4af37;
 }
 /*---- HEADER ENDS HERE:)----- */
+
+
 
 /* ---2.HERO BLOCK STYLES ----*/
 .skewed {
@@ -435,6 +465,41 @@ header {
   background: #d4af37;
   color: #4a0e15;
 }
+.card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.add-to-cart-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #d4af37;
+  color: #4a0e15;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.add-to-cart-btn:hover {
+  background-color: #b48d31;
+  transform: translateY(-2px);
+}
+.add-to-cart-btn svg {
+  width: 20px;
+  height: auto;
+  fill: #4a0e15;
+}
 
 /*modaaaaal*/
 .modal {
@@ -553,6 +618,27 @@ header {
 }
 
 /* ----MAIN CONTENT ASIDE PART ends here---- */
+
+/*-----ABOUT PAGE-----*/
+#about-bgr{
+  background-color: #f7f1ed;
+}
+.about-section{
+  margin: 100px 0;
+}
+.about-txt{
+  width: 50%;
+  border: 1px solid #d4af37;
+  padding: 20px;
+  border-radius: 0 25px 0 25px;
+  color:#4a0e15;
+}
+.flexbox-cont{
+  display: flex;
+  justify-content: center;
+}
+/*-----ABOUT PAGE ENDS HERE-----*/
+
 
 /*---------FOOTER----------*/
 footer {
