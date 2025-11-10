@@ -28,16 +28,18 @@ function toggleMobileNav() {
 const wineCards = document.querySelectorAll(".grid-3-cols"); //ეს ცვლადი მაქვს ქვემოთ filter-ებთანაც
 const input = document.getElementById("search");
 
-input.addEventListener("input", function () {
-  wineCards.forEach((card) => {
-    const name = card.getAttribute("data-name");
-    if (name.includes(input.value)) {
-      card.classList.remove("hidden");
-    } else {
-      card.classList.add("hidden");
-    }
+  input.addEventListener("input", function () {
+    wineCards.forEach((card) => {
+      const name = card.getAttribute("data-name");
+      if (name.includes(input.value)) {
+        card.classList.remove("hidden");
+      } else {
+        card.classList.add("hidden");
+      }
+    });
   });
-});
+
+
 
 //-----------კატეგორიების ფილტრაცია------------::::
 // ყველა filter ღილაკი

@@ -4,7 +4,7 @@ const totalElement = document.getElementById("cart-total");
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function renderCart() {
-  cartContainer.innerHTML = "";
+  cartContainer.innerHTML = "";   //არის ცარიელი(გასუფთავება)
 
   if (cart.length === 0) {
     cartContainer.innerHTML = "<p>კალათა ცარიელია 🛒</p>";
@@ -28,7 +28,7 @@ function renderCart() {
       </div>
     `;
 
-    cartContainer.appendChild(itemDiv);
+    cartContainer.appendChild(itemDiv); //ამ მომენტში ჩაიწერა html -ში :) მიუხედავად იმისა რომ 18ზე შევქმენი
     total += item.price * item.quantity;
   });
 
@@ -38,7 +38,7 @@ function renderCart() {
   document.querySelectorAll(".remove-btn").forEach((btn) => {
     btn.addEventListener("click", function () {
       const index = this.dataset.index;
-      cart.splice(index, 1);
+      cart.splice(index, 1);  //ამ ინდექსიდან რამდენი ელემენტი წაშალოს, აქ 1 რომ ის კონკრეტული წაშალოს :)) 
       localStorage.setItem("cart", JSON.stringify(cart));
       renderCart();
     });
@@ -46,3 +46,4 @@ function renderCart() {
 }
 
 renderCart();
+

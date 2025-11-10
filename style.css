@@ -769,8 +769,16 @@ footer {
   }
   /*header responsive ends here*/
   /*cards responsive */
+  .grid-container{
+    grid-template-columns: 1fr;
+  }
+  aside{
+    display: none;
+  }
   .cards-container {
     grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px;
   }
   .modal-inner {
     grid-template-columns: 1fr;
