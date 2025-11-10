@@ -207,5 +207,60 @@ function updateCartCount() {
 
 
 
+// -----------ენის გადამრთველი-------------
+document.addEventListener('DOMContentLoaded', () => {
+  const langLinks = document.querySelectorAll('.language a');
+  const elementsToTranslate = document.querySelectorAll('[data-translate]');
+  const defaultLang = 'geo'; // ნაგულისხმევი ენა
 
+  // უსაფრთხო fetch და JSON parsing
+  async function loadLangFile(lang) {
+    try {
+      const res = await fetch(`./languages/${lang}.json`);
+      if (!res.ok) throw new Error(`Failed to load languages/${lang}.json (status ${res.status})`);
+      const data = await res.json();
+      return data;
+    } catch (err) {
+      console.error('Language load error:', err);
+      return null;
+    }
+  }
+
+  async function setLanguage(lang) {
+    const data = await loadLangFile(lang);
+    if (!data) return; // თუ ვერ ჩაიტვირთა, აღარ ვცდილობთ შეცვლას
+
+    elementsToTranslate.forEach(el => {
+      const key = el.getAttribute('data-translate');
+      if (!key) return;
+      // თუ key არ არსებობს JSON-ში
+      if (Object.prototype.hasOwnProperty.call(data, key)) {
+        el.textContent = data[key];
+      } else {
+        console.warn(`Missing translation for key "${key}" in ${lang}.json`);
+      }
+    });
+
+    // active კლასი ღილაკზე (ვიზუალური გამოყოფა)
+    langLinks.forEach(link => {
+      link.classList.toggle('active', link.id === lang);
+    });
+  }
+
+  // ღილაკებს კლიკს ვუსმენთ
+  langLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = link.id; // geo ან eng
+      if (!id) {
+        console.warn('Language link has no id:', link);
+        return;
+      }
+      setLanguage(id);
+    });
+  });
+
+  // initialize with default language
+  setLanguage(defaultLang);
+});
 
