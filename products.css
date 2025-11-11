@@ -29,6 +29,9 @@ ol {
   max-width: 1400px;
   margin: 0 auto;
 }
+article{
+  margin-bottom: 100px;
+}
 .prod-title {
   color: #000000;
 }

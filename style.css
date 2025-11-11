@@ -643,12 +643,12 @@ header {
 /*---------FOOTER----------*/
 footer {
   padding: 6.8rem 0;
-  border-top: 2px solid #eee;
+  border-top: 2px solid rgba(120, 117, 117, 0.336);
 }
 .footer-grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 35px;
 }
 .logo-col {
   display: flex;
@@ -685,15 +685,24 @@ footer {
 .shop-col ul li a {
   color: #767676;
 }
-/* .contact-col {
+
+.rec-info{
   display: flex;
-  flex-direction: column;
-  gap: 30px;
-} */
+    flex-direction: column;
+    gap: 20px;
+}
+.rec-col h4 {
+  color: #555;
+  font-size: 1.2rem;
+}
+.rec-col p{
+  color: #767676;
+}
+
 .footer-info {
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 75px;
 }
 .contact-col h4 {
   color: #555;

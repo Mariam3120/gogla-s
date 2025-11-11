@@ -19,17 +19,21 @@
 
           <nav class="main-nav">
             <ul class="nav-list">
-              <li><a href="index.html">მთავარი</a></li>
-              <li><a href="about.html">ჩვენი ისტორია</a></li>
-              <li><a href="products.html">პროდუქცია</a></li>
-              <li><a href="contact.html">კონტაქტი</a></li>
+              <li><a href="index.html" data-translate="home">მთავარი</a></li>
+              <li><a href="about.html" data-translate="about">ჩვენი ისტორია</a></li>
+              <li><a href="products.html" data-translate="products">პროდუქცია</a></li>
+              <li><a href="contact.html" data-translate="contact">კონტაქტი</a></li>
             </ul>
           </nav>
+          <div class="language">
+            <a href="#" id="geo" class="lang geo active">GEO</a>
+            <span>|</span>
+            <a href="#" id="eng" class="lang eng">ENG</a>
+          </div>
 
           <div class="user-actions">
-            <a href="login.html" class="login-link">
+            <a href="login.html" class="login-link" data-translate="login">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                <!--fontawesome -->
                 <path
                   d="M240 192C240 147.8 275.8 112 320 112C364.2 112 400 147.8 400 192C400 236.2 364.2 272 320 272C275.8 272 240 236.2 240 192zM448 192C448 121.3 390.7 64 320 64C249.3 64 192 121.3 192 192C192 262.7 249.3 320 320 320C390.7 320 448 262.7 448 192zM144 544C144 473.3 201.3 416 272 416L368 416C438.7 416 496 473.3 496 544L496 552C496 565.3 506.7 576 520 576C533.3 576 544 565.3 544 552L544 544C544 446.8 465.2 368 368 368L272 368C174.8 368 96 446.8 96 544L96 552C96 565.3 106.7 576 120 576C133.3 576 144 565.3 144 552L144 544z"
                 />
@@ -88,6 +92,7 @@
       </section>
     </main>
 
+    <!--FOOTER -->
     <footer>
       <div class="container">
         <div class="footer-grid-container">
@@ -118,6 +123,15 @@
                     /></svg
                 ></a>
               </li>
+              <li>
+                <a href="https://www.linkedin.com/company/gogla-s/">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                    <path
+                      d="M512 96L127.9 96C110.3 96 96 110.5 96 128.3L96 511.7C96 529.5 110.3 544 127.9 544L512 544C529.6 544 544 529.5 544 511.7L544 128.3C544 110.5 529.6 96 512 96zM231.4 480L165 480L165 266.2L231.5 266.2L231.5 480L231.4 480zM198.2 160C219.5 160 236.7 177.2 236.7 198.5C236.7 219.8 219.5 237 198.2 237C176.9 237 159.7 219.8 159.7 198.5C159.7 177.2 176.9 160 198.2 160zM480.3 480L413.9 480L413.9 376C413.9 351.2 413.4 319.3 379.4 319.3C344.8 319.3 339.5 346.3 339.5 374.2L339.5 480L273.1 480L273.1 266.2L336.8 266.2L336.8 295.4L337.7 295.4C346.6 278.6 368.3 260.9 400.6 260.9C467.8 260.9 480.3 305.2 480.3 362.8L480.3 480z"
+                    />
+                  </svg>
+                </a>
+              </li>
             </ul>
             <p>© All rights reserved.</p>
           </div>
@@ -129,6 +143,16 @@
               <li><a href="">ვისკის სახლი</a></li>
             </ul>
           </div>
+
+          <div class="rec-col">
+            <div class="rec-info">
+              <h4>რეკვიზიტები</h4>
+             <p>წარმოებულია და ჩამოსხმულია საქართველოში შპს "შალვინოს" მიერ.</p>
+             <p>ფანასკერტელი/ციციშვილის ქუჩა, პირველი კორპუსი, ბინა № 10</p>
+            </div>
+            
+          </div>
+          
           <div class="contact-col">
             <div class="footer-info">
               <h4>კონტაქტი</h4>
@@ -136,6 +160,9 @@
             </div>
             <p>goglaswine2021@gmail.com</p>
           </div>
+        
+
+
 
           <!--gridis cont boloo-->
         </div>
