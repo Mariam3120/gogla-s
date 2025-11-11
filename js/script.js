@@ -28,18 +28,16 @@ function toggleMobileNav() {
 const wineCards = document.querySelectorAll(".grid-3-cols"); //ეს ცვლადი მაქვს ქვემოთ filter-ებთანაც
 const input = document.getElementById("search");
 
-  input.addEventListener("input", function () {
-    wineCards.forEach((card) => {
-      const name = card.getAttribute("data-name");
-      if (name.includes(input.value)) {
-        card.classList.remove("hidden");
-      } else {
-        card.classList.add("hidden");
-      }
-    });
+input.addEventListener("input", function () {
+  wineCards.forEach((card) => {
+    const name = card.getAttribute("data-name");
+    if (name.includes(input.value)) {
+      card.classList.remove("hidden");
+    } else {
+      card.classList.add("hidden");
+    }
   });
-
-
+});
 
 //-----------კატეგორიების ფილტრაცია------------::::
 // ყველა filter ღილაკი
@@ -72,6 +70,39 @@ filterLinks.forEach((link) => {
 });
 
 //------------მთავარი სექციის დეტალების ფანჯრის გახსნა--------------
+// // Cards და Modal ელემენტები
+// const cards = document.querySelectorAll(".grid-3-cols");
+// const modal = document.getElementById("wineModal");
+// const modalImage = document.getElementById("modal-image");
+// const modalName = document.getElementById("modal-name");
+// const modalDesc = document.getElementById("modal-description");
+// const modalPrice = document.getElementById("modal-price");
+// const closeBtn = document.querySelector(".close-btn");
+
+// // თითოეულ card-ზე listener
+// cards.forEach((card) => {
+//   const overlay = card.querySelector(".overlay");
+//   // შევამოწმოთ overlay არსებობს თუ არა (safety check)
+//   if (overlay) {
+//     overlay.addEventListener("click", (e) => {
+//       e.stopPropagation(); // bubble-up-ის თავიდან აცილება
+
+//       // Data წამოღება
+//       if (card.dataset.image) {
+//         modalImage.src = card.dataset.image;
+//       }
+//       // modalImage.src = card.dataset.image;
+//       modalName.textContent = card.dataset.name;
+//       modalDesc.textContent = card.dataset.description;
+//       modalPrice.textContent = card.dataset.price;
+
+//       // Modal გახსნა
+//       modal.style.display = "flex";
+//       document.body.style.overflow = "hidden"; // scroll გაყინვა
+//     });
+//   }
+// });
+
 // Cards და Modal ელემენტები
 const cards = document.querySelectorAll(".grid-3-cols");
 const modal = document.getElementById("wineModal");
@@ -81,26 +112,36 @@ const modalDesc = document.getElementById("modal-description");
 const modalPrice = document.getElementById("modal-price");
 const closeBtn = document.querySelector(".close-btn");
 
+// ენის ამოცნობა (რომელი აქტიურია)
+function getActiveLang() {
+  const active = document.querySelector(".language a.active");
+  return active ? active.id : "geo"; // ნაგულისხმევად ქართული
+}
+
 // თითოეულ card-ზე listener
 cards.forEach((card) => {
   const overlay = card.querySelector(".overlay");
-  // შევამოწმოთ overlay არსებობს თუ არა (safety check)
   if (overlay) {
     overlay.addEventListener("click", (e) => {
-      e.stopPropagation(); // bubble-up-ის თავიდან აცილება
+      e.stopPropagation();
+
+      const lang = getActiveLang();
 
       // Data წამოღება
       if (card.dataset.image) {
         modalImage.src = card.dataset.image;
       }
-      // modalImage.src = card.dataset.image;
       modalName.textContent = card.dataset.name;
-      modalDesc.textContent = card.dataset.description;
+
+      // ენის მიხედვით აღწერის ამოღება
+      const descKey = `description${lang === "geo" ? "" : "-" + lang}`;
+      modalDesc.textContent = card.dataset[descKey] || card.dataset.description;
+
       modalPrice.textContent = card.dataset.price;
 
       // Modal გახსნა
       modal.style.display = "flex";
-      document.body.style.overflow = "hidden"; // scroll გაყინვა
+      document.body.style.overflow = "hidden";
     });
   }
 });
@@ -205,23 +246,24 @@ function updateCartCount() {
 //array.reduce((accumulator, currentValue) => ..., initialValue); accumulator (ჩვენთან sum) — შიგნით აგროვებს შედეგს. currentValue (ჩვენთან item) — ყოველი პროდუქტი მასივიდან. initialValue — საწყისი მნიშვნელობაა (0), რომ თავიდანვე დავიწყოთ ნულიდან დათვლა.
 //ფუნქცია აკეთებს: sum + item.quantity (ეს sum არის 0 რომელიც ბოლოში მიწერია)
 
-
-
 // -----------ენის გადამრთველი-------------
-document.addEventListener('DOMContentLoaded', () => {
-  const langLinks = document.querySelectorAll('.language a');
-  const elementsToTranslate = document.querySelectorAll('[data-translate]');
-  const defaultLang = 'geo'; // ნაგულისხმევი ენა
+document.addEventListener("DOMContentLoaded", () => {
+  const langLinks = document.querySelectorAll(".language a");
+  const elementsToTranslate = document.querySelectorAll("[data-translate]");
+  const defaultLang = "geo"; // ნაგულისხმევი ენა
 
   // უსაფრთხო fetch და JSON parsing
   async function loadLangFile(lang) {
     try {
       const res = await fetch(`./languages/${lang}.json`);
-      if (!res.ok) throw new Error(`Failed to load languages/${lang}.json (status ${res.status})`);
+      if (!res.ok)
+        throw new Error(
+          `Failed to load languages/${lang}.json (status ${res.status})`
+        );
       const data = await res.json();
       return data;
     } catch (err) {
-      console.error('Language load error:', err);
+      console.error("Language load error:", err);
       return null;
     }
   }
@@ -230,8 +272,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = await loadLangFile(lang);
     if (!data) return; // თუ ვერ ჩაიტვირთა, აღარ ვცდილობთ შეცვლას
 
-    elementsToTranslate.forEach(el => {
-      const key = el.getAttribute('data-translate');
+    elementsToTranslate.forEach((el) => {
+      const key = el.getAttribute("data-translate");
       if (!key) return;
       // თუ key არ არსებობს JSON-ში
       if (Object.prototype.hasOwnProperty.call(data, key)) {
@@ -241,19 +283,35 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    
+
+    // --- ბარათების აღწერის(description) თარგმნა ---
+    const cards = document.querySelectorAll(".grid-3-cols");
+
+    cards.forEach((card) => {
+      const descGeo = card.getAttribute("data-description-geo");
+      const descEng = card.getAttribute("data-description-eng");
+
+      if (lang === "geo" && descGeo) {
+        card.setAttribute("data-description", descGeo);
+      } else if (lang === "eng" && descEng) {
+        card.setAttribute("data-description", descEng);
+      }
+    });
+
     // active კლასი ღილაკზე (ვიზუალური გამოყოფა)
-    langLinks.forEach(link => {
-      link.classList.toggle('active', link.id === lang);
+    langLinks.forEach((link) => {
+      link.classList.toggle("active", link.id === lang);
     });
   }
 
   // ღილაკებს კლიკს ვუსმენთ
-  langLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
+  langLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
       e.preventDefault();
       const id = link.id; // geo ან eng
       if (!id) {
-        console.warn('Language link has no id:', link);
+        console.warn("Language link has no id:", link);
         return;
       }
       setLanguage(id);
@@ -263,4 +321,3 @@ document.addEventListener('DOMContentLoaded', () => {
   // initialize with default language
   setLanguage(defaultLang);
 });
-
