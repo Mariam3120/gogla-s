@@ -204,8 +204,6 @@ header {
 }
 /*---- HEADER ENDS HERE:)----- */
 
-
-
 /* ---2.HERO BLOCK STYLES ----*/
 .skewed {
   margin-bottom: 100px;
@@ -638,6 +636,40 @@ header {
   justify-content: center;
 }
 /*-----ABOUT PAGE ENDS HERE-----*/
+
+
+/*===========COTACT PAGE ==========*/
+.contact-section{
+  padding: 100px 0;
+}
+#contact-title{
+  text-align: center;
+  color:#4a0e15;
+  font-size: 32px;
+}
+.contact{
+  width: 35%;
+  border: 1px solid #d4af37;
+  padding: 25px;
+  border-radius: 0 25px 0 25px;
+  color:#4a0e15;
+  margin: 0 auto;
+}
+
+.contact-links{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+.contact-links svg {
+  width: 35px;
+  height: auto;
+  fill: #d4af37;
+}
+
+
 
 
 /*---------FOOTER----------*/
