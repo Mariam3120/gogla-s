@@ -136,3 +136,88 @@ article{
   font-size: 18px;
   color: #4a0e15;
 }
+
+
+/* ===== RESPONSIVE ===== */
+
+/* BETWEEN 1200px and 900px FIX */
+@media (max-width: 1200px) {
+  .product-parent {
+    gap: 20px;
+  }
+
+  .p-img img {
+    width: 220px; /* ცოტათი შეამცირებს, ჰარმონიულად ჩამოვა */
+  }
+
+  .p-text p {
+    font-size: 17px;
+  }
+
+  /* დეკორატიული მტევნები რომ არ გადაფაროს */
+  .product-parent::before,
+  .product-parent::after {
+    top: -20px;
+    width: 45px;
+    height: 55px;
+  }
+
+  .prod-title {
+    text-align: center; 
+  }
+}
+
+
+
+
+@media (max-width: 900px) {
+  .product-parent {
+    flex-direction: column;
+    text-align: center;
+  }
+  .prod-title{
+    text-align: center;
+  }
+
+  .product-parent:nth-child(even) {
+    flex-direction: column-reverse; /* რომ ფოტო და ტექსტი რიგითობა შენარჩუნდეს */
+  }
+
+  .p-img img {
+    width: 70%;
+    max-width: 300px;
+  }
+
+  .p-text {
+    width: 100%;
+  }
+
+  .p-text p {
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 0 10px;
+  }
+
+  /* დეკორაციები გავაქროთ მცირე ეკრანებზე */
+  .products-section::before,
+  .product-parent::before,
+  .product-parent::after,
+  .p-text::after {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .p-img img {
+    width: 90%;
+  }
+
+  .p-text p {
+    font-size: 15px;
+  }
+
+  .prod-title {
+    font-size: 24px;
+    text-align: center;
+  }
+}
