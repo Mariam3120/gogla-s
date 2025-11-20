@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //------------მთავარი სექციის დეტალების ფანჯრის გახსნა--------------
 // // -----------CARDS და MODAL ელემენტები
 // ნაწილი 1: მოდალის ლოგიკა (გვერდებზე, სადაც პროდუქციაა)
-// გამოიყენე null-ის შემოწმება, რო არ გამოიწვიოს შეცდომა გვერდებზე,
+// null-ის შემოწმება, რო არ გამოიწვიოს შეცდომა გვერდებზე,
 // სადაც ეს ელემენტები არ არსებობს (მაგ. contact.html)
 
 const cards = document.querySelectorAll(".grid-3-cols");
@@ -137,7 +137,7 @@ if (modal && cards.length > 0) {
 
   // აქტიური ენის ამოცნობა (LocalStorage-დან იღებს)
   function getActiveLang() {
-    // წაიკითხეთ ენა LocalStorage-დან, ნაგულისხმევად გამოიყენეთ 'geo'
+    // წაიკითხეთ ენა LocalStorage-დან, ნაგულისხმევად გამოიყენე 'geo'
     return localStorage.getItem("currentLang") || "geo";
   }
 
@@ -153,7 +153,7 @@ if (modal && cards.length > 0) {
 
       if (modalImage && card.dataset.image) modalImage.src = card.dataset.image;
 
-      // 1. სათაურის თარგმნა (შესწორებული ლოგიკა)
+      // 1. სათაურის თარგმნა 
       const nameToDisplay =
         lang === "geo"
           ? card.dataset.name // data-name (ქართული)
@@ -161,7 +161,7 @@ if (modal && cards.length > 0) {
 
       if (modalName) modalName.textContent = nameToDisplay || card.dataset.name;
 
-      // 2. აღწერილობის თარგმნა (შესწორებული ლოგიკა)
+      // 2. აღწერილობის თარგმნა 
       const descToDisplay =
         lang === "geo"
           ? card.dataset.descriptionGeo // data-description-geo (ქართული)
@@ -334,7 +334,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const nameKey = isGeo ? "data-name" : "data-name-eng";
       const nameAttr = isGeo ? "data-name" : "data-name"; // ორივე შემთხვევაში data-name განვაახლოთ
       if (card.hasAttribute(nameKey)) {
-        // წაიკითხეთ საჭირო ატრიბუტი და განაახლეთ display ატრიბუტი
+        // წაიკითხე საჭირო ატრიბუტი და განაახლე display ატრიბუტი
         card.setAttribute(nameAttr, card.getAttribute(nameKey));
       }
 
@@ -346,13 +346,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // 4. active კლასის განახლება (ვიზუალური ინდიკატორი)
+    // 4. active კლასის განახლება (ვიზუალური ინდიკატორი-ხაზი)
     langLinks.forEach((link) => {
       link.classList.toggle("active", link.id === lang);
     });
   }
 
-  // გვერდის ჩატვირთვისას: ავტომატურად დააყენეთ ენა LocalStorage-ის მიხედვით
+  // გვერდის ჩატვირთვისას: ავტომატურად დააყენე ენა LocalStorage-ის მიხედვით
   setLanguage(currentLang);
 
   // ღილაკებზე კლიკი: შეინახეთ ენა და განაახლეთ გვერდი

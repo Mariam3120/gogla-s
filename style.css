@@ -24,7 +24,7 @@ ol {
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  /* padding: 0 2rem; გვერდებზე padding mobile-ისთვის */
+ 
 }
 
 /* ---HEADER--- */
@@ -668,7 +668,7 @@ header {
   height: auto;
   fill: #d4af37;
 }
-
+/*===========COTACT PAGE ENDS HERE :)==========*/
 
 
 
@@ -809,7 +809,8 @@ footer {
     margin-right: 0;
   }
   /*header responsive ends here*/
-  /*cards responsive */
+
+  /*----cards responsive---- */
   .grid-container{
     grid-template-columns: 1fr;
   }
