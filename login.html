@@ -67,8 +67,8 @@
         
         <!-- ტაბები -->
         <div class="tab-container">
-          <button id="login-tab" class="tab-btn active">შესვლა</button>
-          <button id="register-tab" class="tab-btn">რეგისტრაცია</button>
+          <button id="login-tab" class="tab-btn active" data-translate="login_tab">შესვლა</button>
+          <button id="register-tab" class="tab-btn" data-translate="register_tab">რეგისტრაცია</button>
         </div>
 
         <!-- შეტყობინება -->
@@ -76,18 +76,18 @@
 
         <!-- შესვლის ფორმა -->
         <div id="login-form" class="auth-form">
-          <h2>შესვლა</h2>
-          <input type="email" id="login-email" placeholder="ელფოსტა">
-          <input type="password" id="login-password" placeholder="პაროლი">
-          <button id="login-btn">შესვლა</button>
+          <h2 data-translate="login_title">შესვლა</h2>
+          <input type="email" id="login-email" placeholder="ელფოსტა" data-translate-placeholder="email_placeholder" >
+          <input type="password" id="login-password" placeholder="პაროლი" data-translate-placeholder="password_placeholder">
+          <button id="login-btn" data-translate="login_button">შესვლა</button>
         </div>
 
         <!-- რეგისტრაციის ფორმა -->
         <div id="register-form" class="auth-form" style="display: none;">
-          <h2>რეგისტრაცია</h2>
-          <input type="email" id="register-email" placeholder="ელფოსტა">
-          <input type="password" id="register-password" placeholder="პაროლი">
-          <button id="register-btn">რეგისტრაცია</button>
+          <h2 data-translate="register_title">რეგისტრაცია</h2>
+          <input type="email" id="register-email" placeholder="ელფოსტა" data-translate-placeholder="email_placeholder">
+          <input type="password" id="register-password" placeholder="პაროლი" data-translate-placeholder="password_placeholder">
+          <button id="register-btn" data-translate="register_button">რეგისტრაცია</button>
         </div>
 
       </div>
@@ -96,10 +96,10 @@
     <!-- პროფილის სექცია (ჩანს როცა მომხმარებელი შესულია) -->
     <section id="profile-section" style="display: none;">
       <div class="container">
-        <h2 id="your-profile">თქვენი პროფილი</h2>
+        <h2 id="your-profile" data-translate="your_profile">თქვენი პროფილი</h2>
         <div class="profile-info">
-          <p><strong>ელფოსტა:</strong> <span id="user-email-display"></span></p>
-          <button id="logout-btn" class="logout-button">გასვლა</button>
+          <p><strong data-translate="email_label">ელფოსტა:</strong> <span id="user-email-display"></span></p>
+          <button id="logout-btn" class="logout-button" data-translate="logout_button">გასვლა</button>
         </div>
       </div>
     </section>
